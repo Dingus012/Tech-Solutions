@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TechSolutions | Gerenciador de Tarefas</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <img src="logo.png" alt="Logo da TechSolutions" class="logo">
+    <p class="slogan">Do backlog ao deploy, sem perder o fio.</p>
+    <button id="btn-tema" type="button">Modo escuro</button>
+  </header>
+
+  <main>
+
+    <section class="nova-tarefa">
+      <h2>Nova tarefa</h2>
+      <form id="form-nova">
+        <input type="text" id="titulo" placeholder="Título da tarefa" required>
+        <input type="text" id="descricao" placeholder="Descrição curta">
+        <select id="tipo">
+          <option value="novo">Novo recurso</option>
+          <option value="correcao">Correção</option>
+          <option value="melhoria">Melhoria</option>
+        </select>
+        <input type="date" id="vencimento" required>
+        <button type="submit" class="primario">Criar tarefa</button>
+      </form>
+    </section>
+
+    <section class="quadro">
+      <div class="coluna">
+        <h2>A fazer <span class="contador" id="cont-a-fazer">0</span></h2>
+        <div class="lista" id="lista-a-fazer"></div>
+      </div>
+      <div class="coluna">
+        <h2>Em andamento <span class="contador" id="cont-andamento">0</span></h2>
+        <div class="lista" id="lista-andamento"></div>
+      </div>
+      <div class="coluna">
+        <h2>Concluída <span class="contador" id="cont-concluida">0</span></h2>
+        <div class="lista" id="lista-concluida"></div>
+      </div>
+      <div class="coluna">
+        <h2>Cancelada <span class="contador" id="cont-cancelada">0</span></h2>
+        <div class="lista" id="lista-cancelada"></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="detalhes">
+    <h2 id="det-titulo"></h2>
+    <p class="codigo" id="det-codigo"></p>
+    <p id="det-descricao"></p>
+
+    <label>Status
+      <select id="det-status">
+        <option value="a-fazer">A fazer</option>
+        <option value="andamento">Em andamento</option>
+        <option value="concluida">Concluída</option>
+        <option value="cancelada">Cancelada</option>
+      </select>
+    </label>
+
+    <label>Data de vencimento
+      <input type="date" id="det-vencimento">
+    </label>
+
+    <h3>Comentários</h3>
+    <ul id="det-comentarios"></ul>
+    <div class="linha">
+      <input type="text" id="novo-comentario" placeholder="Escreva um comentário">
+      <button type="button" id="btn-comentar">Comentar</button>
+    </div>
+
+    <div class="linha acoes">
+      <button type="button" id="btn-excluir" class="perigo">Excluir</button>
+      <button type="button" id="btn-salvar" class="primario">Salvar</button>
+      <button type="button" id="btn-fechar">Fechar</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
